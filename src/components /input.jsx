@@ -5,21 +5,22 @@ const Input = ({ label, type, value, options, onChange })=> {
         const newvalue = event.target.value;
         onChange(newvalue);
     }
+
     return (
-        <div className='input'>
+        <div>
             <label>{label}</label>
             {type === 'select' ? (
-                <select value={value} onChange={handleChange}>
+                <select className='input' value={value.name} onChange={handleChange}>
                     {options.map((option)=>(
-                        <option key={option} value={option}>
-                            {option}
+                        <option className='input' key={option.id} value={option.name}>
+                            {option.name}
                         </option>
                     ))}
                 </select>
                 ) : type === 'textarea' ? (
-                    <textarea value={value} onChange={handleChange}/>
+                    <textarea className='input' value={value} onChange={handleChange}/>
                 ) : (
-                    <input type='text' value={value} onChange={handleChange}/>
+                    <input className='input' type='text' placeholder='Text...' value={value} onChange={handleChange}/>
                     ) }
         </div>
        

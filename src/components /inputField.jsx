@@ -2,20 +2,20 @@ import React, { useState } from 'react';
 import { Input } from './input';
 
 const InputField = ()=>{
-    const [job, setJob] = useState('');
+    const [jobs, setJobs] = useState(JSON.parse(localStorage.getItem('jobs')) || []);
     const [workers, setWorkers] = useState(JSON.parse(localStorage.getItem('workers')) || []);
     const [machine, setMachine] = useState('');
     const [description, setDescription] = useState('')
 
     return (
         <div>
-            {/* <Input 
+            <Input 
                 label='Job'
                 type='select'
-                value={job}
-                options={['higlands', 'the barn', 'sheringham']}
-                onChange={setJob}
-                /> */}
+                value={jobs}
+                options={jobs}
+                onChange={setJobs}
+                />
 
             <Input 
                 label='Workers'

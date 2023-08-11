@@ -22,6 +22,7 @@ export function AddWorker(){
     
     return (
         <form >
+            <h3>Worker</h3>
             <Input 
                 label='Name'
                 type='text'

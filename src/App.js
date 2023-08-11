@@ -5,6 +5,7 @@ import { InputField } from './components /inputField'
 import React, { useState } from 'react';
 import { AddWorker } from './components /worker';
 import { AddJob } from './components /job';
+import { AddTools } from './components /tools';
 
 function App() {
   const [value, setValue] = useState('')
@@ -22,6 +23,7 @@ function App() {
 
         <AddWorker/>
         <AddJob/>
+        <AddTools/>
       
     </div>
   );

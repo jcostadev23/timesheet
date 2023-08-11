@@ -4,7 +4,7 @@ import { Input } from './input';
 const InputField = ()=>{
     const [jobs, setJobs] = useState(JSON.parse(localStorage.getItem('jobs')) || []);
     const [workers, setWorkers] = useState(JSON.parse(localStorage.getItem('workers')) || []);
-    const [machine, setMachine] = useState('');
+    const [tools, setTools] = useState(JSON.parse(localStorage.getItem('tools')) || []);
     const [description, setDescription] = useState('')
 
     return (
@@ -25,13 +25,13 @@ const InputField = ()=>{
                 onChange={setWorkers}
                 />
 
-            {/* <Input 
-                label='Machine'
+            <Input 
+                label='Tools'
                 type='select'
-                value={machine}
-                options={['Hitachi 3t', 'BobCat', 'Volvo']}
-                onChange={setMachine}
-                /> */}
+                value={tools}
+                options={tools}
+                onChange={setTools}
+                />
             
             <Input 
                 label='Description'

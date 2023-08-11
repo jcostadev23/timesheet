@@ -2,7 +2,7 @@ import { useState } from "react";
 import { createId } from "../helpers/createId";
 import { Input } from "./input";
 
-export function AddJob () {
+export default function AddJob () {
     const [jobs, setJobs] = useState(JSON.parse(localStorage.getItem('jobs')) || [])
     const [name, setName] = useState('');
     const [address, setAddress] = useState('');

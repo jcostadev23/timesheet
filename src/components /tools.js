@@ -2,7 +2,7 @@ import { useState } from "react";
 import { createId } from "../helpers/createId";
 import { Input } from "./input";
 
-export function AddTools () {
+export default function AddTools () {
     const [tools, setTools] = useState(JSON.parse(localStorage.getItem('tools')) || []);
     const [name, setName] = useState('');
     const [attachements, setAttachements] = useState('');

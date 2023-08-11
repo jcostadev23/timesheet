@@ -2,7 +2,7 @@ import { useState } from "react";
 import { Input } from './input';
 import { createId } from '../helpers/createId';
 
-export function AddWorker(){
+export default function AddWorker(){
     const [workers, setWorkers] = useState(JSON.parse(localStorage.getItem('workers')) || []);
     const [name, setName] = useState('');
     const [phoneNumber, setPhoneNumber] = useState('');

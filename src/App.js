@@ -1,31 +1,24 @@
 
 import './App.css';
-import { Input } from './components /input';
-import { InputField } from './components /inputField'
-import React, { useState } from 'react';
-import { AddWorker } from './components /worker';
-import { AddJob } from './components /job';
-import { AddTools } from './components /tools';
+import AddWorker from './components /worker';
+import AddJob from './components /job';
+import AddTools from './components /tools';
+import Menu from './components /menu';
+import { BrowserRouter as Router, Routes, Route,} from 'react-router-dom';
 
 function App() {
-  const [value, setValue] = useState('')
-
-  const handleInput = (newValue)=> {
-    setValue(newValue)
-  }
 
   return (
-    <div className="App">
-      <header className="header">Timesheet</header>
-        {/* <Input label='Testing' value={value} onChange={handleInput}/>
-        <p>Result: {value}</p> */}
-        <InputField/>
-
-        <AddWorker/>
-        <AddJob/>
-        <AddTools/>
-      
-    </div>
+    <Router>
+      <div className="App">
+        <Menu/>
+        <Routes>
+          <Route path="/worker" element={<AddWorker/>}/>
+          <Route path="/job" element={<AddJob/>}/>
+          <Route path="/tools" element={<AddTools/>}/>
+        </Routes>
+      </div>
+    </Router>
   );
 }
 

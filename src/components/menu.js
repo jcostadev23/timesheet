@@ -13,6 +13,7 @@ export default function Menu (){
             <button onClick={openMenu}>Open Menu</button>
             {menuClose && (
                 <div className="menu-options">
+                    <Link to='/'>Home</Link>
                     <Link to='/worker'>Worker</Link>
                     <Link to='/job'>Job</Link>
                     <Link to='/tools'>Tools</Link> 

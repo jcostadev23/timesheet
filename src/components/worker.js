@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { Input } from '../../src/components/input';
 import { createId } from '../../src/helpers/helperFunction';
-import './worker.css'
 
 export default function AddWorker(){
     const [workers, setWorkers] = useState(JSON.parse(localStorage.getItem('workers')) || []);
@@ -38,13 +37,12 @@ export default function AddWorker(){
                     onChange={setPhoneNumber}/>
                 <button onClick={saveWorker}>Save </button>
             </form>
-            <div>
                 {workers && workers?.map((worker) => {
                     return (
-                    <div className="worker-card">Name: {worker.name} Phone: {worker.phoneNumber}
-                    </div>)
+                    <p className="element-card" key={worker.id}>
+                        Name: {worker.name},  Phone: {worker.phoneNumber}
+                    </p>)
                 })}
-            </div>
         </div>
 
     )

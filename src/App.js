@@ -15,13 +15,13 @@ function App() {
       <div className="App">
         <Menu/>
         <Routes>
+          <Route path="/" element={<TimeSheet/>}/>
           <Route path="/worker" element={<AddWorker/>}/>
           <Route path="/job" element={<AddJob/>}/>
           <Route path="/tools" element={<AddTools/>}/>
         </Routes>
       </div>
     </Router>
-    <TimeSheet/>
     </div>
   );
 }

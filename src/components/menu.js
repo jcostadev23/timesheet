@@ -1,24 +1,15 @@
 import { useState } from "react"
-import { Link } from 'react-router-dom';
+import './menu.css'
 
-export default function Menu (){
-    const [menuClose, setMenuClose] = useState(false);
-
-    const openMenu = () => {
-        setMenuClose(!menuClose)
-    }
-      
+export default function Menu (){     
     return (
-        <div>
-            <button onClick={openMenu}>Open Menu</button>
-            {menuClose && (
-                <div className="menu-options">
-                    <Link to='/'>Home</Link>
-                    <Link to='/worker'>Worker</Link>
-                    <Link to='/job'>Job</Link>
-                    <Link to='/tools'>Tools</Link> 
-                </div>
-            )}
+        <div className="navbar">
+            <div className="menu-options">
+                <a href='/'>Home</a>
+                <a href='/worker'>Worker</a>
+                <a href='/job'>Job</a>
+                <a href='/tools'>Tools</a> 
+            </div>
         </div>
     )
 }

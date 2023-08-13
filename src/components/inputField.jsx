@@ -3,7 +3,7 @@ import { Input } from './input';
 import './input.css';
 import dayjs from 'dayjs';
 import { Button } from './button';
-import { createId } from '../helpers/helperFunction';
+import { createId, formatHours, } from '../helpers/helperFunction';
 
 const InputField = ()=>{
     const [jobs, setJobs] = useState(JSON.parse(localStorage.getItem('jobs')) || []);
@@ -15,19 +15,23 @@ const InputField = ()=>{
     const [worker, setWorker] = useState('')
     const [job, setJob] = useState('')
     const [equipement, setEquipement] = useState('')
+    const [hours, setHours] = useState(Number)
+    const [equipHours, setEquipHours] = useState(Number)
 
     const dailyDiary = (event) =>{
         event.preventDefault()
 
-        if(!worker){
+        if(!date || !worker){
             return 
         }
 
         const day ={
             date: date,
-            jobs: job,
-            workers: worker,
-            equipement: equipement,
+            jobs: job.replace(/\b\w/g, c=> c.toUpperCase()),
+            workers: worker.replace(/\b\w/g, c=> c.toUpperCase()),
+            hours: formatHours(hours),
+            equipement: equipement.replace(/\b\w/g, c=> c.toUpperCase()),
+            equipHours: formatHours(equipHours),
             description: description,
             id: createId()
         }
@@ -37,9 +41,17 @@ const InputField = ()=>{
     const handleDataChange = (event)=> {
         setDate(event.target.value);
     }
-   
+
+    const handleChangeWorkerHours = (event)=> {
+        setHours(event.target.value);
+    }
+
+    const handleChangeEquipHours = (event)=> {
+        setEquipHours(event.target.value);
+    }
+
     return (
-        <form >
+        <form>
             <input className='input'
                 type='date'
                 value={date}
@@ -62,6 +74,13 @@ const InputField = ()=>{
                 onChange={setWorker}
                 />
 
+            <input className='input'
+                type="number"
+                step='0.5'
+                value={hours}
+                onChange={handleChangeWorkerHours}
+                />
+
             <Input 
                 label='Equipement'
                 type='select'
@@ -69,7 +88,14 @@ const InputField = ()=>{
                 options={equipements}
                 onChange={setEquipement}
                 />
-            
+
+            <input className='input'
+                type='number'
+                step='0.5'
+                value={equipHours}
+                onChange={handleChangeEquipHours}
+                />
+
             <Input 
                 label='Description'
                 type='textarea'

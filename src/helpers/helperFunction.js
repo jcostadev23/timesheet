@@ -5,4 +5,15 @@ const createId = ()=>{
     return `${timeStamp}-${random}`;
 }
 
-export { createId }
+const formatHours = (minutes)=> {
+    const hours = Math.floor(minutes);
+    const remainMinutes = (minutes - hours) * 60;
+    let format = `${hours}H`;
+    if(remainMinutes !==0) {
+        return(
+        format += `:${remainMinutes}M`)
+        }
+    return format
+    }
+
+export { createId, formatHours}

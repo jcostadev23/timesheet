@@ -1,13 +1,19 @@
 import { useState } from "react";
 import { createId } from "../../src/helpers/helperFunction";
 import { Input } from "../../src/components/input";
+import { Button } from "./button";
 
 export default function AddJob () {
     const [jobs, setJobs] = useState(JSON.parse(localStorage.getItem('jobs')) || [])
     const [name, setName] = useState('');
     const [address, setAddress] = useState('');
 
-    const saveJob = () => {
+    const saveJob = (event) => {
+        event.preventDefault()
+
+        if(!name){
+            return 
+        }
         const job ={
             name: name,
             address: address,
@@ -35,12 +41,15 @@ export default function AddJob () {
                     value={address}
                     onChange={setAddress}
                     />
-                <button onClick={saveJob}>Save</button>
+                <Button
+                    type='Submit'
+                    label='Add'
+                    onClick={saveJob}/>
             </form>
                 {jobs && jobs?.map((job)=> {
                     return(
                         <p className="element-card" key={job.id}>
-                            Name: {job.name}, Address: {job.address}
+                           <span>Name:</span>{job.name} <span>Address:</span>{job.address}
                         </p>)
                 })}
         </div>

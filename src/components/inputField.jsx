@@ -8,13 +8,13 @@ import { createId } from '../helpers/helperFunction';
 const InputField = ()=>{
     const [jobs, setJobs] = useState(JSON.parse(localStorage.getItem('jobs')) || []);
     const [workers, setWorkers] = useState(JSON.parse(localStorage.getItem('workers')) || []);
-    const [tools, setTools] = useState(JSON.parse(localStorage.getItem('tools')) || []);
+    const [equipements, setEquipements] = useState(JSON.parse(localStorage.getItem('equipements')) || []);
     const [description, setDescription] = useState('')
     const [date, setDate] = useState(dayjs().format('DD/MM/YYYY'))
     const [days, setDays] = useState(JSON.parse(localStorage.getItem('days')) || [])
     const [worker, setWorker] = useState('')
     const [job, setJob] = useState('')
-    const [tool, setTool] = useState('')
+    const [equipement, setEquipement] = useState('')
 
     const dailyDiary = (event) =>{
         event.preventDefault()
@@ -22,12 +22,12 @@ const InputField = ()=>{
         if(!worker){
             return 
         }
-        
+
         const day ={
             date: `${date}`,
             jobs: job,
             workers: worker,
-            tools: tool,
+            equipement: equipement,
             description:`${description}`,
             id: createId
         }
@@ -63,11 +63,11 @@ const InputField = ()=>{
                 />
 
             <Input 
-                label='Tools'
+                label='Equipement'
                 type='select'
-                value={tool}
-                options={tools}
-                onChange={setTool}
+                value={equipement}
+                options={equipements}
+                onChange={setEquipement}
                 />
             
             <Input 

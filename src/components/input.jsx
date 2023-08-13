@@ -23,7 +23,7 @@ const Input = ({ label, type, value, options, onChange })=> {
                 ) : (
                     <input className='input' 
                         type='text' 
-                        placeholder='Text...' 
+                        placeholder={label} 
                         value={value} 
                         onChange={handleChange}/>
                     ) }

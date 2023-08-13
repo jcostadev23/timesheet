@@ -1,15 +1,14 @@
-import React, { useState } from 'react';
 
 const Input = ({ label, type, value, options, onChange })=> {
 
     const handleChange = (event)=>{
-        const newvalue = event.target.value;
-        onChange(newvalue);
+        let newValue = event.target.value;
+        newValue = newValue.charAt(0).toUpperCase() + newValue.slice(1);
+        onChange(newValue);
     }
     
     return (
         <div>
-            {/* <label>{label}</label> */}
             {type === 'select' ? (
                 <select className='input' value={value.name} onChange={handleChange}>
                     {options?.map((option)=>(

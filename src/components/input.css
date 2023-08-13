@@ -1,18 +1,7 @@
-.input-card{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    border: 2px solid rgb(190, 183, 190);
-    background: url('../logoCard.jpg') center no-repeat;
-    margin: 20px;
-    
-}
 
 .input {
-    width: 400px;
+    width: 300px;
     margin: 10px;
-    flex-grow: 1;
     border: none;
     outline: none;
     border-radius: 6px;
@@ -21,11 +10,4 @@
     10px rgba(0,0,0,0.3);
     font-size: 14px;
     font-weight: 600;
-  }
-  
-  .input:focus {
-    background-color: #d9d4d4;
-    transform: scale(1.05);
-    box-shadow: 13px 13px 100px #969696,
-    -13px -13px 100px #ffffff;
   }

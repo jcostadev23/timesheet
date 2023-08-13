@@ -27,7 +27,7 @@ export default function AddWorker(){
     }
     
     return (
-        <div className="card" >
+        <div>
             <h3>Workers</h3>
             <form>
                 <Input 
@@ -48,11 +48,10 @@ export default function AddWorker(){
             </form>
                 {workers && workers?.map((worker) => {
                     return (
-                    <p className="element-card" key={worker.id}>
-                        <span>Name:</span>{worker.name} <span>Phone:</span> {worker.phoneNumber}
-                    </p>)
+                        <div className="element-card" key={worker.id}>
+                            <span>Name: {worker.name}</span> <span>Phone: {worker.phoneNumber}</span> 
+                        </div>)
                 })}
         </div>
-
     )
 }

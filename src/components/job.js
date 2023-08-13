@@ -26,7 +26,7 @@ export default function AddJob () {
     }
 
     return(
-        <div className="card">
+        <div>
             <h3>Job</h3>
             <form > 
                 <Input
@@ -49,7 +49,7 @@ export default function AddJob () {
                 {jobs && jobs?.map((job)=> {
                     return(
                         <p className="element-card" key={job.id}>
-                           <span>Name:</span>{job.name} <span>Address:</span>{job.address}
+                           <span>Name: {job.name}</span><span>Address: {job.address}</span>
                         </p>)
                 })}
         </div>

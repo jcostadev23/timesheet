@@ -48,9 +48,10 @@ export default function AddEquipements () {
             </form>
             {equipements && equipements?.map((equipement)=>{
                 return (
-                    <p className="element-card" key={equipement.id}>
-                        <span>Name: {equipement.name}</span> <span>Attachements: {equipement.attachements}</span>
-                    </p>)
+                    <section className="element-card" key={equipement.id}>
+                        <p>Name: {equipement.name}</p> 
+                        <p>Attachements: {equipement.attachements}</p>
+                    </section>)
             })}
         </div>
     )

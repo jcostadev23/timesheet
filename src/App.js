@@ -2,7 +2,7 @@
 import './App.css';
 import AddWorker from './components/worker';
 import AddJob from './components/job';
-import AddTools from './components/tools';
+import AddEquipements from './components/equipements';
 import Menu from './components/menu';
 import { BrowserRouter as Router, Routes, Route,} from 'react-router-dom';
 import TimeSheet from './components';
@@ -18,7 +18,7 @@ function App() {
           <Route path="/" element={<TimeSheet/>}/>
           <Route path="/worker" element={<AddWorker/>}/>
           <Route path="/job" element={<AddJob/>}/>
-          <Route path="/tools" element={<AddTools/>}/>
+          <Route path="/equipements" element={<AddEquipements/>}/>
         </Routes>
       </div>
     </Router>

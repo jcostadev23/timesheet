@@ -12,7 +12,7 @@ export default function TimeSheet () {
         {days && days?.map((day)=>{
           const formatDate = dayjs(day.date).format('DD/MM/YYYY');
           return (
-            <section className="element-card" key={day.id}>
+            <section key={day.id}>
               <h4>{formatDate}</h4> 
               <p>Job: {day.jobs}</p> 
               <p>Worker: {day.workers}</p> 

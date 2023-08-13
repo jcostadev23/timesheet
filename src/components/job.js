@@ -48,7 +48,7 @@ export default function AddJob () {
             </form>
                 {jobs && jobs?.map((job)=> {
                     return(
-                        <section className="element-card" key={job.id}>
+                        <section key={job.id}>
                            <p>Name: {job.name}</p>
                            <p>Address: {job.address}</p>
                         </section>)

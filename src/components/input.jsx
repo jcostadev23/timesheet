@@ -18,7 +18,7 @@ const Input = ({ label, type, value, options, onChange })=> {
                     ))}
                 </select>
                 ) : type === 'textarea' ? (
-                    <textarea className='input' value={value} onChange={handleChange}/>
+                    <textarea className='input' placeholder={label}  value={value} onChange={handleChange}/>
                 ) : (
                     <input className='input' 
                         type='text' 

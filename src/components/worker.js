@@ -48,7 +48,7 @@ export default function AddWorker(){
             </form>
                 {workers && workers?.map((worker) => {
                     return (
-                        <section className="element-card" key={worker.id}>
+                        <section key={worker.id}>
                             <p>Name: {worker.name}</p> 
                             <p>Phone: {worker.phoneNumber}</p> 
                         </section>)

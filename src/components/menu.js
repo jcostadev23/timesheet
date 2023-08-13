@@ -7,7 +7,7 @@ export default function Menu (){
                 <a href='/'>Home</a>
                 <a href='/worker'>Worker</a>
                 <a href='/job'>Job</a>
-                <a href='/tools'>Tools</a> 
+                <a href='/equipements'>Tools</a> 
             </div>
         </div>
     )

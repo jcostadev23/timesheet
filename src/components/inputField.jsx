@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 import { Input } from './input';
 import './input.css';
 import dayjs from 'dayjs';
-import { createId } from '../helpers/helperFunction'
+import { Button } from './button';
+import { createId } from '../helpers/helperFunction';
 
 const InputField = ()=>{
     const [jobs, setJobs] = useState(JSON.parse(localStorage.getItem('jobs')) || []);
@@ -15,7 +16,13 @@ const InputField = ()=>{
     const [job, setJob] = useState('')
     const [tool, setTool] = useState('')
 
-    const dailyDiary = () =>{
+    const dailyDiary = (event) =>{
+        event.preventDefault()
+
+        if(!worker){
+            return 
+        }
+        
         const day ={
             date: `${date}`,
             jobs: job,
@@ -70,7 +77,10 @@ const InputField = ()=>{
                 onChange={setDescription}
                 />
 
-            <button onClick={dailyDiary}>Save Day</button>
+            <Button 
+                type='Submit'
+                label='Submit'
+                onClick={dailyDiary}/>
         </form>
     )
 }

@@ -24,12 +24,12 @@ const InputField = ()=>{
         }
 
         const day ={
-            date: `${date}`,
+            date: date,
             jobs: job,
             workers: worker,
             equipement: equipement,
-            description:`${description}`,
-            id: createId
+            description: description,
+            id: createId()
         }
         localStorage.setItem("days", JSON.stringify([...days, day]))
     }
@@ -39,7 +39,7 @@ const InputField = ()=>{
     }
    
     return (
-        <form className='input-card'>
+        <form >
             <input className='input'
                 type='date'
                 value={date}

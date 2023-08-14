@@ -11,6 +11,9 @@ const Input = ({ label, type, value, options, onChange })=> {
         <div>
             {type === 'select' ? (
                 <select className='input' value={value} onChange={handleChange}>
+                    <option className='input' value='' disabled>
+                        Select an option...
+                    </option>
                     {options?.map((option)=>(
                         <option className='input' key={option.id} value={option.name}>
                             {option.name}

@@ -59,7 +59,7 @@ const InputField = ()=>{
     const handleChangeEquipHours = (event)=> {
         setEquipHours(event.target.value);
     }
-console.log('options', date, worker, job, equipement, description)
+
     return (
         <form>
             <input className='input'

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { createId } from "../../src/helpers/helperFunction";
+import { createId, removeItem } from "../../src/helpers/helperFunction";
 import { Input } from "../../src/components/input";
 import { Button } from "./button";
 
@@ -21,10 +21,10 @@ export default function AddJob () {
         };
 
         localStorage.setItem('jobs', JSON.stringify([...jobs, job]))
+        setJobs([...jobs, job])
         setName('')
         setAddress('')
 
-        window.location.reload()
     }
 
     return(
@@ -53,6 +53,11 @@ export default function AddJob () {
                         <section key={job.id}>
                            <p>Name: {job.name}</p>
                            <p>Address: {job.address}</p>
+                           <Button label='Delete' 
+                                onClick={()=> {
+                                    localStorage.setItem('jobs', 
+                                    JSON.stringify(removeItem(jobs, job)))
+                                    window.location.reload()}}/>
                         </section>)
                 })}
         </div>

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { createId } from "../helpers/helperFunction";
+import { createId, removeItem } from "../helpers/helperFunction";
 import { Input } from "./input";
 import { Button } from "./button";
 
@@ -21,10 +21,10 @@ export default function AddEquipements () {
         }
 
         localStorage.setItem('equipements', JSON.stringify([...equipements, equipement]));
+        setEquipements([...equipements, equipement])
         setName('')
         setAttachements('')
 
-        window.location.reload()
     }
 
     return (
@@ -53,6 +53,12 @@ export default function AddEquipements () {
                     <section key={equipement.id}>
                         <p>Name: {equipement.name}</p> 
                         <p>Attachements: {equipement.attachements}</p>
+                        <Button label='Delete' 
+                                onClick={()=> {
+                                    localStorage.setItem('equipements', 
+                                    JSON.stringify(removeItem(equipements, equipement)))
+                                    window.location.reload()}}
+                                    />
                     </section>)
             })}
         </div>

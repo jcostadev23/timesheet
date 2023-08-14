@@ -16,4 +16,13 @@ const formatHours = (minutes)=> {
     return format
     }
 
-export { createId, formatHours}
+const removeItem = (list, item)=> {
+    let index = list.findIndex(element => element === item)
+    if(index !== -1){
+        list.splice(index, 1)
+    }
+    
+    return list
+}
+
+export { createId, formatHours, removeItem}

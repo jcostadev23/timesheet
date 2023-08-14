@@ -36,6 +36,7 @@ const InputField = ()=>{
             id: createId()
         }
         localStorage.setItem("days", JSON.stringify([...days, day]))
+        setDays([...days, day])
         setDate('')
         setJob('')
         setWorker('')
@@ -43,8 +44,6 @@ const InputField = ()=>{
         setDescription('')
         setEquipement('')
         setEquipHours('')
-
-        window.location.reload()
 
     }
 

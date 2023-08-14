@@ -1,6 +1,8 @@
 import { useState } from "react"
 import { InputField } from './inputField';
 import dayjs from 'dayjs';
+import { Button } from "./button";
+import { removeItem } from "../helpers/helperFunction";
 
 export default function TimeSheet () {
   const [days, setDays] = useState(JSON.parse(localStorage.getItem('days')) || []);
@@ -20,6 +22,11 @@ export default function TimeSheet () {
               <p>Equipements: {day.equipement}</p> 
               <p>Equipements Hours: {day.equipHours}</p>  
               <p>Description: {day.description}</p> 
+              <Button label='Delete' 
+                onClick={()=> {
+                  localStorage.setItem('days', 
+                  JSON.stringify(removeItem(days, day)))
+                  window.location.reload()}}/>
             </section>
           )
         })} 

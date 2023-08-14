@@ -1,6 +1,6 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import { Input } from '../../src/components/input';
-import { createId } from '../../src/helpers/helperFunction';
+import { createId, removeItem } from '../../src/helpers/helperFunction';
 import { Button } from "./button";
 
 export default function AddWorker(){
@@ -22,10 +22,10 @@ export default function AddWorker(){
         };
 
         localStorage.setItem('workers', JSON.stringify([...workers, worker]));
+        setWorkers([...workers, worker])
         setName('')
         setPhoneNumber('')
 
-        window.location.reload()
     }
     
     return (
@@ -53,6 +53,11 @@ export default function AddWorker(){
                         <section key={worker.id}>
                             <p>Name: {worker.name}</p> 
                             <p>Phone: {worker.phoneNumber}</p> 
+                            <Button label='Delete' 
+                                onClick={()=> {
+                                    localStorage.setItem('workers', 
+                                    JSON.stringify(removeItem(workers, worker)))
+                                    window.location.reload()}}/>
                         </section>)
                 })}
         </div>

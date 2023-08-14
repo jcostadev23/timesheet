@@ -10,7 +10,7 @@ const Input = ({ label, type, value, options, onChange })=> {
     return (
         <div>
             {type === 'select' ? (
-                <select className='input' value={value.name} onChange={handleChange}>
+                <select className='input' value={value} onChange={handleChange}>
                     {options?.map((option)=>(
                         <option className='input' key={option.id} value={option.name}>
                             {option.name}

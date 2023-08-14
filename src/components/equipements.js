@@ -23,6 +23,8 @@ export default function AddEquipements () {
         localStorage.setItem('equipements', JSON.stringify([...equipements, equipement]));
         setName('')
         setAttachements('')
+
+        window.location.reload()
     }
 
     return (

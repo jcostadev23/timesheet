@@ -24,6 +24,8 @@ export default function AddWorker(){
         localStorage.setItem('workers', JSON.stringify([...workers, worker]));
         setName('')
         setPhoneNumber('')
+
+        window.location.reload()
     }
     
     return (

@@ -15,8 +15,8 @@ const InputField = ()=>{
     const [worker, setWorker] = useState('')
     const [job, setJob] = useState('')
     const [equipement, setEquipement] = useState('')
-    const [hours, setHours] = useState(Number)
-    const [equipHours, setEquipHours] = useState(Number)
+    const [hours, setHours] = useState(0)
+    const [equipHours, setEquipHours] = useState(0)
 
     const dailyDiary = (event) =>{
         event.preventDefault()
@@ -36,6 +36,16 @@ const InputField = ()=>{
             id: createId()
         }
         localStorage.setItem("days", JSON.stringify([...days, day]))
+        setDate('')
+        setJob('')
+        setWorker('')
+        setHours('')
+        setDescription('')
+        setEquipement('')
+        setEquipHours('')
+
+        window.location.reload()
+
     }
 
     const handleDataChange = (event)=> {
@@ -49,7 +59,7 @@ const InputField = ()=>{
     const handleChangeEquipHours = (event)=> {
         setEquipHours(event.target.value);
     }
-
+console.log('options', date, worker, job, equipement, description)
     return (
         <form>
             <input className='input'

@@ -23,6 +23,8 @@ export default function AddJob () {
         localStorage.setItem('jobs', JSON.stringify([...jobs, job]))
         setName('')
         setAddress('')
+
+        window.location.reload()
     }
 
     return(

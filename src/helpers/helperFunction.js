@@ -17,12 +17,9 @@ const formatHours = (minutes)=> {
     }
 
 const removeItem = (list, item)=> {
-    let index = list.findIndex(element => element === item)
-    if(index !== -1){
-        list.splice(index, 1)
-    }
-    
-    return list
+    const newList = list.filter(element => element !== item)
+  
+    return newList
 }
 
 export { createId, formatHours, removeItem}
